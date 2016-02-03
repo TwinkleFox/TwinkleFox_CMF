@@ -1,0 +1,9 @@
+AddDefaultCharset UTF-8
+DirectoryIndex index.php
+Options -Indexes +FollowSymLinks -MultiViews
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^index.php - [L]
+    RewriteRule ^.*$ index.php [L,NC]
+</IfModule>
+
