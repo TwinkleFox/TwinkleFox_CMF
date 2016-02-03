@@ -10,6 +10,10 @@
  * Стартовый класс TwinkleFox CMF
  */
 
+use twinklefox\core\route\controller as route;
+use twinklefox\apps\controller as apps;
+use twinklefox\output\controller as output;
+
 class twinklefox {
     private $mode = 'default'; // Режим
     private $app_name = 'webpage'; // Имя модуля
@@ -44,9 +48,9 @@ class twinklefox {
     private function twinklefox_init() {
         $this->config = new config();
         $this->loader = new loader(__DIR__);
-        $this->route = new twinklefox\core\route\controller($this->mode);
+        $this->route = new route($this->mode);
         $this->app = $this->route->get_app();
-        // $this->apps = new twinklefox\core\apps\controller($this->app_name);
-        $this->output = new twinklefox\output\controller();
+        // $this->apps = new apps($this->app_name);
+        $this->output = new output();
     }
 }
